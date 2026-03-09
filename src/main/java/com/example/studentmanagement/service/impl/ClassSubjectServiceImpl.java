@@ -37,6 +37,7 @@ public class ClassSubjectServiceImpl implements ClassSubjectService {
      * @param tl
      * @return MessageResponse
      */
+    @Override
     public MessageResponse createTimeLine(TimeLineDto2 tl) {
         List<ClassSubject> resultSave = new ArrayList<>();
 
@@ -61,6 +62,7 @@ public class ClassSubjectServiceImpl implements ClassSubjectService {
      * @param classId
      * @return MessageResponse chứa list thông tin TKB
      */
+    @Override
     public MessageResponse getTimeLineByFilter(int classId) {
         List<TimeLineDto> result = new ArrayList<>();
         List<ClassSubject> classSubjects = classSubjectRepository.findAllByClassId(classId);
@@ -164,6 +166,7 @@ public class ClassSubjectServiceImpl implements ClassSubjectService {
      * @param tl
      * @return MessageResponse chứa danh sách bản ghi được update
      */
+    @Override
     public MessageResponse updateTimeLine(TimeLineDto2 tl) {
         List<ClassSubject> resultSave = new ArrayList<>();
 
@@ -253,6 +256,7 @@ public class ClassSubjectServiceImpl implements ClassSubjectService {
      * @param clazzId
      * @return MessageResponse
      */
+    @Override
     public MessageResponse getTimeLineMonday(int clazzId) {
         List<ClassSubject> classSubjects = classSubjectRepository.findAllByClassIdAndDay(clazzId, 2);
         TimeLineDayDto timeLineDayDto = new TimeLineDayDto();

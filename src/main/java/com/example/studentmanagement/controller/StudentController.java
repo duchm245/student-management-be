@@ -2,7 +2,7 @@ package com.example.studentmanagement.controller;
 
 import com.example.studentmanagement.dto.MessageResponse;
 import com.example.studentmanagement.model.Student;
-import com.example.studentmanagement.service.impl.StudentServiceImpl;
+import com.example.studentmanagement.service.StudentService;
 import org.springframework.data.repository.query.Param;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("api")
 //@CrossOrigin
 public class StudentController {
-    private final StudentServiceImpl studentService;
+    private final StudentService studentService;
 
-    public StudentController(StudentServiceImpl studentService) {
+    public StudentController(StudentService studentService) {
         this.studentService = studentService;
     }
 

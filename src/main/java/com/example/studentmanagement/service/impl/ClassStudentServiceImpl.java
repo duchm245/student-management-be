@@ -45,6 +45,7 @@ public class ClassStudentServiceImpl implements ClassStudentService {
      * @param classStudent
      * @return MessageResponse chứa
      */
+    @Override
     public MessageResponse saveClazzStudent(ClassStudent classStudent) {
         List<ClassStudent> classStudents = classStudentRepository.findByStudentIdAndClassId(classStudent.getStudentId(), classStudent.getClassId());
         if (classStudents.isEmpty()) {
@@ -77,6 +78,7 @@ public class ClassStudentServiceImpl implements ClassStudentService {
      * @param studentId
      * @return MessageResponse
      */
+    @Override
     public MessageResponse getClazzIdByStudentId(int studentId) {
         List<ClassStudent> classStudent = classStudentRepository.findByStudentIdAndStatus(studentId, 1);
         if (classStudent.isEmpty()) {

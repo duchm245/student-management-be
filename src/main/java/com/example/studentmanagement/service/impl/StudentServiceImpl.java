@@ -51,6 +51,7 @@ public class StudentServiceImpl implements StudentService {
      * @return MessageResponse chứa thông tin học sinh vừa tạo
      */
     @Override
+    @Override
     public MessageResponse saveStudent(Student student) {
         // xử lý thêm validate:  xem email đã được sử dụng chưa -> chưa có mới cho lưu
         // ...
@@ -84,7 +85,6 @@ public class StudentServiceImpl implements StudentService {
         return new MessageResponse("Get a student successful", 200, student1);
     }
 
-    @Override
     public MessageResponse getAllStudents() {
         List<Student> students = studentRepository.findAll();
         messageResponse.setMessage("Get all student successful");
@@ -156,6 +156,7 @@ public class StudentServiceImpl implements StudentService {
      * @param pageSize
      * @return MessageResponse chứa một list các classStudentDto, tổng số page và element
      */
+    @Override
     public MessageResponse getAllStudentByFilter(int classId, int gender, int status, String name, String sortSelected, int page, int pageSize) {
         var page1 = PageRequest.of(page - 1, pageSize, Sort.by(Sort.Direction.ASC, sortSelected));
         // Bóc tách studentId từ các bản ghi của bảng class_student vào trong một list
@@ -324,6 +325,7 @@ public class StudentServiceImpl implements StudentService {
      * @return MessageResponse chứa student đã được update
      */
     @Override
+    @Override
     public MessageResponse updateStudentById(Student student, int id) {
         Student student1 = studentRepository.findStudentById(id).orElse(null);
         if (student1 == null) {
@@ -349,6 +351,7 @@ public class StudentServiceImpl implements StudentService {
      * @param id
      */
     @Override
+    @Override
     public MessageResponse deleteStudentById(int id) {
         Optional<Student> deleteStudent = studentRepository.findStudentById(id);
         if (deleteStudent.isEmpty()) {
@@ -364,6 +367,7 @@ public class StudentServiceImpl implements StudentService {
      *
      * @param id
      */
+    @Override
     public MessageResponse deleteSoftStudentById(int id) {
         Optional<Student> deleteStudent = studentRepository.findStudentById(id);
         if (deleteStudent.isEmpty()) {
@@ -379,6 +383,7 @@ public class StudentServiceImpl implements StudentService {
      *
      * @param email
      */
+    @Override
     public MessageResponse checkEmailExist(String email) {
         boolean check = true;
         List<Student> students = studentRepository.findAllByEmailIgnoreCase(email);

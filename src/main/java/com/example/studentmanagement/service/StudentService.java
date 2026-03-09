@@ -18,4 +18,16 @@ public interface StudentService {
 
     MessageResponse deleteStudentById(int id);
 
+    MessageResponse deleteSoftStudentById(int id);
+
+    MessageResponse checkEmailExist(String email);
+
+    MessageResponse getAllStudentByFilter(int classId,
+                                          int gender,
+                                          int status,
+                                          String name,
+                                          String sortSelected,
+                                          int page,
+                                          int pageSize);
+
 }

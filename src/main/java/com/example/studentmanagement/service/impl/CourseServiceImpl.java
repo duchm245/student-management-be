@@ -15,6 +15,7 @@ public class CourseServiceImpl implements CourseService {
         this.courseRepository = courseRepository;
     }
 
+    @Override
     public MessageResponse getAllCourse() {
         List<?> courseList = courseRepository.findAll();
         return new MessageResponse("okk", 200, courseList);

@@ -2,7 +2,7 @@ package com.example.studentmanagement.controller;
 
 import com.example.studentmanagement.dto.MessageResponse;
 import com.example.studentmanagement.dto.TimeLineDto2;
-import com.example.studentmanagement.service.impl.ClassSubjectServiceImpl;
+import com.example.studentmanagement.service.ClassSubjectService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.repository.query.Param;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("api")
 @AllArgsConstructor
 public class ClassSubjectController {
-    private final ClassSubjectServiceImpl classSubjectService;
+    private final ClassSubjectService classSubjectService;
 
     @PostMapping("/createTimeLine")
     public ResponseEntity<MessageResponse> createTimeLine(@RequestBody TimeLineDto2 tl2) {
