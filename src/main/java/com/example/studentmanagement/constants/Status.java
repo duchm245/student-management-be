@@ -1,5 +1,6 @@
 package com.example.studentmanagement.constants;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.AllArgsConstructor;
 
@@ -17,8 +18,21 @@ public enum Status {
 //    }
 
     @JsonValue
+    public int getValue() {
+        return value;
+    }
+
     public String getDescription() {
         return description;
     }
 
+    @JsonCreator
+    public static Status fromValue(int value) {
+        for (Status status : Status.values()) {
+            if (status.value == value) {
+                return status;
+            }
+        }
+        throw new IllegalArgumentException("Invalid status value: " + value);
+    }
 }

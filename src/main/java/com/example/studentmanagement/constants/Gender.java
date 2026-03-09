@@ -1,5 +1,6 @@
 package com.example.studentmanagement.constants;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.AllArgsConstructor;
 
@@ -17,7 +18,21 @@ public enum Gender {
 //    }
 
     @JsonValue
+    public int getValue() {
+        return value;
+    }
+
     public String getDescription() {
         return description;
+    }
+
+    @JsonCreator
+    public static Gender fromValue(int value) {
+        for (Gender gender : Gender.values()) {
+            if (gender.value == value) {
+                return gender;
+            }
+        }
+        throw new IllegalArgumentException("Invalid gender value: " + value);
     }
 }

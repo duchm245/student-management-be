@@ -55,8 +55,6 @@ public class StudentServiceImpl implements StudentService {
         // xử lý thêm validate:  xem email đã được sử dụng chưa -> chưa có mới cho lưu
         // ...
         Student student1 = studentRepository.save(student);
-        String datetest = "2023-04-15";
-        student1.setBirthday(DateTimeUtil.parseDateCommon(datetest));
         messageResponse.setMessage("Create a student successful");
         messageResponse.setData(student1);
         return messageResponse;

@@ -2,6 +2,8 @@ package com.example.studentmanagement.model;
 
 import com.example.studentmanagement.constants.Gender;
 import com.example.studentmanagement.constants.Status;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -33,12 +35,12 @@ public class Student {
     @Column(name = "class_main", length = 50)
     private String classMain;
 
-//    @Column(name = "sex")
-//    private Integer sex;
     @Column(name = "sex")
+    @JsonProperty("gender")
     private Gender sex;
 
     @Column(name = "birthday")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date birthday;
 
     @Column(name = "email", length = 50)
